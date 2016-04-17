@@ -18,12 +18,14 @@ class ActorsController < ApplicationController
 
       SELECT *
         WHERE {
-      ?actor a dbo:Actor
-      optional {
-        ?actor foaf:name ?name .
-        ?actor foaf:depiction ?depiction
-      }
-    })
+          ?actor a dbo:Actor
+        optional {
+          ?actor foaf:name ?name .
+          ?actor foaf:depiction ?depiction .
+          FILTER(LANG(?name) = "" || LANGMATCHES(LANG(?name), "en"))
+        }
+      } GROUP BY ?actor
+    )
   end
 
   def actor_query(name)
@@ -44,7 +46,7 @@ class ActorsController < ApplicationController
           ?starring dbp:starring ?actor .
           FILTER(LANG(?abastract) = "" || LANGMATCHES(LANG(?abstract), "en"))
         }
-      }
+      } GROUP BY ?actor
     )
   end
 
