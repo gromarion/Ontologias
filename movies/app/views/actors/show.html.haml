@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-lg-6
+      .info
+        %h1.page-header
+          = @actor.name
+      .thumbnail
+        = image_tag @actor.depiction
+      .desc
+        %h3.page-header
+          Birth Date
+        = @actor.birthDate
+      .desc
+        %h3
+          Years Active
+        = @actor.yearsActive
+      .desc
+        %h3
+          Abstract
+        = @actor.abstract
