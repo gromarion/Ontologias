@@ -36,15 +36,14 @@ class ActorsController < ApplicationController
       SELECT *
         WHERE {
           ?actor a dbo:Actor .
-          ?actor foaf:name ") + name + %("@en
-        optional {
+          ?actor foaf:name ") + name + %("@en.
           ?actor foaf:name ?name .
           ?actor foaf:depiction ?depiction .
-          ?actor dbo:birthDate ?birthDate .
+          ?actor dbo:birthDate ?birthDate
+        OPTIONAL {
           ?actor dbo:abstract ?abstract .
           ?actor dbp:yearsActive ?yearsActive .
-          ?starring dbp:starring ?actor .
-          FILTER(LANG(?abastract) = "" || LANGMATCHES(LANG(?abstract), "en"))
+          FILTER(LANG(?abstract) = "" || LANGMATCHES(LANG(?abstract), "en"))
         }
       } GROUP BY ?actor
     )

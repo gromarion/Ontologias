@@ -7,18 +7,21 @@ RDF::Reader.open("http://ruby-rdf.github.com/rdf/etc/doap.nt") do |reader|
   end
 end
 
-#SELECT DISTINCT ?actor ?birth_date ?picture ?abstract ?starring
-CONSTRUCT
-  WHERE {
-    ?actor rdf:type <http://dbpedia.org/ontology/Actor>.
-    ?actor dbo:birthDate ?birth_date .
-    ?actor foaf:depiction ?picture .
-    ?actor dbo:abstract ?abstract .
-    ?starring dbp:starring ?actor .
-    ?producer dbo:producer ?actor .
-    ?writer dbo:writer ?actor .
-    ?actor dbp:yearsActive ?yearsActive
-  }
+#########################################
+# QUERY PARA OBTENER ACTORES DE DBPEDIA #
+#########################################
+# PREFIX dbo: <http://dbpedia.org/ontology/>
+# PREFIX dbp: <http://dbpedia.org/property/>
+
+# CONSTRUCT
+#   WHERE {
+#     ?actor a dbo:Actor.
+#     ?actor foaf:name ?name.
+#     ?actor dbo:birthDate ?birth_date .
+#     ?actor dbo:abstract ?abstract .
+#     ?actor dbp:yearsActive ?yearsActive.
+#     ?actor foaf:depiction ?depiction
+#   }
 
 repository = RDF::Repository.load('http://localhost:1111')
 query = SPARQL.parse(%(
@@ -34,7 +37,7 @@ query = SPARQL.parse(%(
       ?starring dbp:starring ?actor}))
 query.execute(repository)
 
-# DB.DBA.TTLP_MT (file_to_string_output ('/Users/gromarion/Documents/ITBA/Ontologias/movies.nt'), '', 'http://movies-ontologias.com');
+# DB.DBA.TTLP_MT (file_to_string_output ('/Users/gromarion/Documents/ITBA/Ontologias/Ontologias/movies.nt'), '', 'http://movies-ontologias.com');
 
 # RDF::Repository.load('http://localhost:8890/sparql')
 # RDF::FormatError: unknown RDF format: {:base_uri=>"http://localhost:8890/sparql", :content_type=>"text/html", :file_name=>"http://localhost:8890/sparql"}
