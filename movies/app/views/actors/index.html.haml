@@ -3,5 +3,5 @@
     .col-lg-12
       %h1.page-header
         Actors
-        = button_to 'Liked Actors', '/liked_actors', class: 'btn'
+        = link_to 'Liked Actors', '/liked_actors', class: 'btn'
 = render 'actors', results: @results
