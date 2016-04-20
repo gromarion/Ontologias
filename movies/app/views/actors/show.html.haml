@@ -6,15 +6,24 @@
           = @actor.name
       .thumbnail
         = image_tag @actor.depiction
-      .desc
-        %h3.page-header
-          Birth Date
-        = @actor.birthDate
-      .desc
-        %h3
-          Years Active
-        = @actor.yearsActive
-      .desc
-        %h3
-          Abstract
-        = @actor.abstract
+      - if @actor.bound?(:birthDate)
+        .desc
+          %h3.page-header
+            Birth Date
+          = @actor.birthDate
+      - if @actor.bound?(:yearsActive)
+        .desc
+          %h3
+            Years Active
+          = @actor.yearsActive
+      - if @actor.bound?(:abstract)
+        .desc
+          %h3
+            Abstract
+          = @actor.abstract
+  = form_tag("/actor/#{params[:id]}/update_like") do
+    .desc
+      %h3
+        Liked
+        = check_box "liked", :all, class: 'checkbox', checked: @actor.bound?(:liked) && @actor.liked.value == '1'
+    = submit_tag "Save", class: 'btn'

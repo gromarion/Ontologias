@@ -9,6 +9,16 @@ class ActorsController < ApplicationController
     @actor = sparql_client.query(actor_query(params[:id])).first
   end
 
+  def update_like
+    @actor = sparql_client.query(actor_query(params[:id])).first
+    sparql_client.query(insert_like_query(@actor, params[:liked][:all]))
+    redirect_to URI.escape("http://localhost:3000/actor/#{params[:id]}")
+  end
+
+  def liked_actors
+    
+  end
+
   private
 
   def actors_query
@@ -43,16 +53,26 @@ class ActorsController < ApplicationController
         OPTIONAL {
           ?actor dbo:abstract ?abstract .
           ?actor dbp:yearsActive ?yearsActive .
+          ?actor xsd:boolean ?liked
           FILTER(LANG(?abstract) = "" || LANGMATCHES(LANG(?abstract), "en"))
         }
       } GROUP BY ?actor
     )
   end
 
-  def sparql_client
-    @client ||= SPARQL::Client.new(
-      "http://localhost:8890/sparql",
-      SPARQL::Client::ACCEPT_XML
+  def insert_like_query(actor, like)
+    liked = actor.bound?(:liked) ? actor.liked : '0'
+    %(
+      DELETE DATA FROM <http://movies-ontologias.com> {
+        <) + actor.actor + %(>  xsd:boolean ) + liked  + %(
+      }
+      INSERT DATA INTO <http://movies-ontologias.com> {
+        <) + actor.actor + %(> xsd:boolean ) + like + %(
+      }
     )
+  end
+
+  def sparql_client
+    @client ||= SPARQL::Client.new('http://localhost:8890/sparql', SPARQL::Client::ACCEPT_XML)
   end
 end

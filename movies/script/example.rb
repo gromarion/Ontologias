@@ -45,6 +45,7 @@ query.execute(repository)
 
 
 sparql = SPARQL::Client.new("http://localhost:8890/sparql")
+update = SPARQL::Client::Update.new("http://localhost:8890/sparql")
 result = sparql.query(%(
   PREFIX dbo: <http://dbpedia.org/ontology/>
   PREFIX dbp: <http://dbpedia.org/property/>
