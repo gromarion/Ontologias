@@ -1,0 +1,8 @@
+.container
+  .row
+    - results.each do |result|
+      - next unless result[:name] && result[:depiction]
+      .col-lg-3
+        .thumbnail
+          = result[:name].to_s
+          = link_to image_tag(result[:depiction].to_s), "http://localhost:3000/actor/#{result[:name].to_s}"

@@ -15,7 +15,7 @@ class ActorsController < ApplicationController
   end
 
   def liked_actors
-    @actors = sparql_client.query(actor_query)
+    @actors = sparql_client.query(liked_actors_query)
   end
 
   private
@@ -23,7 +23,6 @@ class ActorsController < ApplicationController
   def actors_query
     %(
       PREFIX dbo: <http://dbpedia.org/ontology/>
-      PREFIX dbp: <http://dbpedia.org/property/>
 
       SELECT *
         WHERE {
@@ -62,7 +61,7 @@ class ActorsController < ApplicationController
   end
 
   def insert_like_query(actor, like)
-    liked = actor.bound?(:liked) ? actor.liked : '0'
+    liked = actor.bound?(:liked) ? actor.liked.value : '0'
     %(
       DELETE DATA FROM <http://movies-ontologias.com> {
         <) + actor.actor + %(>  xsd:boolean ) + liked  + %(
@@ -70,6 +69,21 @@ class ActorsController < ApplicationController
       INSERT DATA INTO <http://movies-ontologias.com> {
         <) + actor.actor + %(> xsd:boolean ) + like + %(
       }
+    )
+  end
+
+  def liked_actors_query
+    %(
+      PREFIX dbo: <http://dbpedia.org/ontology/>
+
+      SELECT *
+        WHERE {
+          ?actor a dbo:Actor .
+          ?actor foaf:name ?name .
+          ?actor foaf:depiction ?depiction .
+          ?actor xsd:boolean ?liked.
+          FILTER (?liked = "true"^^xsd:boolean)
+      } GROUP BY ?actor
     )
   end
 
