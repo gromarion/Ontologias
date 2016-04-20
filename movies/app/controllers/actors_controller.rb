@@ -1,8 +1,7 @@
 class ActorsController < ApplicationController
 
   def index
-    results = sparql_client.query(actors_query, content_type: SPARQL::Client::RESULT_XML)
-    @results = results.map { |result| result.each_binding  { |name, value| puts value.inspect } }
+    @results = sparql_client.query(actors_query, content_type: SPARQL::Client::RESULT_XML)
   end
 
   def show
@@ -16,7 +15,7 @@ class ActorsController < ApplicationController
   end
 
   def liked_actors
-    
+    @actors = sparql_client.query(actor_query)
   end
 
   private
@@ -49,12 +48,14 @@ class ActorsController < ApplicationController
           ?actor foaf:name ") + name + %("@en.
           ?actor foaf:name ?name .
           ?actor foaf:depiction ?depiction .
-          ?actor dbo:birthDate ?birthDate
+          ?actor dbo:birthDate ?birthDate .
+          ?actor dbo:abstract ?abstract .
+          ?actor dbp:yearsActive ?yearsActive .
+          FILTER(LANG(?name) = "" || LANGMATCHES(LANG(?name), "en"))
         OPTIONAL {
           ?actor dbo:abstract ?abstract .
           ?actor dbp:yearsActive ?yearsActive .
           ?actor xsd:boolean ?liked
-          FILTER(LANG(?abstract) = "" || LANGMATCHES(LANG(?abstract), "en"))
         }
       } GROUP BY ?actor
     )
