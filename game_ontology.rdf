@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#"
+     xml:base="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology"
+     xmlns:game-ontology="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#canPickup -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#canPickup">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#hasWeapon -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#hasWeapon">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#isEnemyOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#isEnemyOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ammo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ammo">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Weapon"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#damage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#damage">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Weapon"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#duration">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#health -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#health">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#isAlive -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#isAlive">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#score">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#speed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#stamina -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#stamina"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/Weapon -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Weapon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Ammo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Ammo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile"/>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Weapon"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#AmmoCrate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#AmmoCrate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Ammo"/>
+        <ammo rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</ammo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#AutomaticRifle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#AutomaticRifle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun"/>
+        <ammo rdf:datatype="http://www.w3.org/2001/XMLSchema#int">100</ammo>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.0</damage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Berserker -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Berserker">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Bullet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Bullet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile"/>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#BulletTime -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#BulletTime">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#DoubleBarrelShotgun -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#DoubleBarrelShotgun">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun"/>
+        <ammo rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</ammo>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</damage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#GodMode -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#GodMode">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LargeDemon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LargeDemon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy"/>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.0</damage>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</health>
+        <score rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</score>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LargeHealthPack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LargeHealthPack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack"/>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</health>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#MediumHealthPack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#MediumHealthPack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack"/>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">25.0</health>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Minigun -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Minigun">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun"/>
+        <ammo rdf:datatype="http://www.w3.org/2001/XMLSchema#int">250</ammo>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.0</damage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Plasma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Plasma">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile"/>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.0</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PlasmaGun"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player"/>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100.0</health>
+        <score rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1000</score>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</speed>
+        <stamina rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100.0</stamina>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#RapidFire -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#RapidFire">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Rocket -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Rocket">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile"/>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.0</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ShootingEnemy1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ShootingEnemy1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy"/>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0</damage>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">15.0</health>
+        <score rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</score>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.35</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ShootingEnemy2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#ShootingEnemy2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy"/>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</damage>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">25.0</health>
+        <score rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</score>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Shotgun -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Shotgun">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#FireGun"/>
+        <ammo rdf:datatype="http://www.w3.org/2001/XMLSchema#int">35</ammo>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</damage>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#SmallDemon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#SmallDemon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy"/>
+        <damage rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0</damage>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</health>
+        <score rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</score>
+        <speed rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</speed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#SmallHealthPack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#SmallHealthPack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack"/>
+        <health rdf:datatype="http://www.w3.org/2001/XMLSchema#float">50.0</health>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#StaminaSiringe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#StaminaSiringe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina"/>
+        <stamina rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</stamina>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#UnlimitedAmmo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#UnlimitedAmmo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+        <duration rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</duration>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://dbpedia.org/ontology/Weapon"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Ammo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PowerUp"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Stamina"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Enemy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#HealthPack"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Player"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Weapon"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#LivingEntity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#PickUpItem"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/gromarion/ontologies/2016/3/game-ontology#Projectile"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi -->
+
